@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <title>Visor 3D</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top">
+        <div class="container-fluid">
+            <a href="#">
+                <h1 class="title">Visor3D</h1>
+            </a>
+            <div class="d-flex header-text">
+                <a class="mx-2" href="./registrarse.html">Registrarse</a>
+                <a class="mx-2" href="./iniciarsesion.html">Iniciar sesion</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Visualizador -->
+    <section class="main-section">
+        <div class="container-fluid py-5">
+            <div class="row gy-3 mt-4">
+                <div class="col-lg-8">
+                    <div id="canvas-placeholder">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div id="controls">
+                        <div>
+                            <div id="file-drop-zone"
+                                class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6"
+                                ondrop="onDropHandler(event);" ondragover="onDragOverHandler(event);">
+                                <div class="space-y-1 text-center">
+                                    <div class="flex text-sm body-text">
+                                        <label for="file-upload"
+                                            class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
+                                            <span>Upload a file</span>
+                                            <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                        </label>
+                                        <p class="pl-1">or drag and drop</p>
+                                    </div>
+                                    <p class="text-xs body-text">.obj file up to 10MB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-3 mx-2">
+            <div class="col-lg-9">
+                <div class="instructions-panel">
+                    <h3 class="header-text">Instrucciones de uso</h2>
+                    <p class="body-text">Para usar la aplicacion, debes subir un archivo con formato .obj. Una vez
+                        cargado, este se mostrara en el visualizador y podras interactuar con este. Puedes escalar el
+                        modelo usando los botones de control.</p>
+                        
+                        <ul class="body-text">
+                            <li>Haz click y desliza el mouse sobre el visualizador para girar la figura</li>
+                            <li>Usa la rueda del raton para acercar o alejar el modelo</li>
+                        </ul>
+
+                        <p class="body-text">Opcionalmente, puedes crear una cuenta y guardas modelos para poder visualizarlos posteriormente. Los modelos a guardar tienen un limite de 10MB.</p>
+                        <div class="d-flex">
+                            <img class="img-fluid mx-2 my-4" src="./images/imagen1.png" alt="modelo 1">
+                            <img class="img-fluid mx-2 my-4" src="./images/imagen2.png" alt="modelo 2">
+
+                        </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="large-skyscraper-ad"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-fluid p-0 mt-4">
+            <div class="social-media-footer d-flex justify-content-center align-items-center">
+                <div id="social-media" class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <a href="#"><img src="./images/mail.svg" alt="mail"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="./images/instagram.svg" alt="instagram"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="./images/facebook.svg" alt="facebook"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="./images/twitter.svg" alt="twitter"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-4 px-md-0">
+                <div class="row content-footer align-items-center">
+                    <div class="col-12 col-md-4 my-4">
+                        <p class="header-text">Visor3D</p>
+                        <p class="body-text">Visor3D es una aplicacion web que permite visualizar modelos 3D en el
+                            formato .obj, escalar, rotar y cambiar el material del objeto.
+                            Tambien puedes crear tu propia cuenta y guardas modelos 3D para visualizar donde quieras y
+                            cuando quieras.</p>
+                    </div>
+                    <div class="col-12 col-md-4 offset-md-4">
+                        <div class="col header-text">
+                            <div class="d-flex flex-column justify-content-start">
+
+                                <a href="#">
+                                    <p>Contacto</p>
+                                </a>
+                                <a href="./terminos.html">
+                                    <p>Terminos de uso</p>
+                                </a>
+                                <a href="./privacidad.html">
+                                    <p>Politica de privacidad</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4 my-md-0">
+                    <div class="col">
+                        <div class="horizontal-bar"></div>
+                    </div>
+                </div>
+                <div class="row py-4 align-items-center">
+                    <div class="col">
+                        <div class="d-flex justify-content-center">
+                            <p class="header-text">&copy; 2022 Visor3D</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/p5.js"></script>
+    <script src="./js/viewer.js"></script>
+</body>
+
+</html>

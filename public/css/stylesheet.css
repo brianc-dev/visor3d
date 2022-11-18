@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px "Lato", Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+}
+
+:root {
+    --background-color: #191A1D;
+    --surface-dec-color: linear-gradient(180deg, rgba(77, 101, 114, 0.2) 0%, rgba(0, 0, 0, 0) 100%), #212329;
+    --surface-color: #2C313A;
+    --onSurface-color: #9AE1FF;
+    --onSurface-color-hover: #b1e8ff;
+    --onSurface-color-active: #558fc5;
+    --horizontal-bar-color: linear-gradient(180deg, rgba(163, 180, 237, 0.28) 0%, rgba(0, 0, 0, 0) 100%), #757D8F;
+    --border-radius: 10px;
+    --onSurface-filter-color: invert(82%) sepia(12%) saturate(1438%) hue-rotate(169deg) brightness(101%) contrast(102%);
+}
+
+.title {
+    font-family: 'Lilita One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    color: var(--onSurface-color);
+}
+
+.navbar {
+    background-color: var(--surface-color);
+}
+
+#canvas-placeholder {
+    background-color: #D9D9D9;
+    height: 630px;
+    width: 100%;
+}
+
+#controls {
+    background: var(--surface-dec-color);
+    height: 630px;
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+.leaderboard-ad {
+    background-color: #E6E6E6;
+    width: 728px;
+    height: 90px;
+}
+
+.large-mobile-ad {
+    background-color: #E6E6E6;
+    width: 320px;
+    height: 100px;
+}
+
+.instructions-panel {
+    background: var(--surface-color);
+    height: 600px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    padding: 32px;
+}
+
+.large-skyscraper-ad {
+    background-color: #E6E6E6;
+    width: 300px;
+    height: 600px;
+}
+
+.social-media-footer {
+    background: var(--surface-color);
+    height: 78px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+#social-media {
+    width: fit-content;
+}
+
+#social-media img {
+    filter: var(--onSurface-filter-color)
+}
+
+.header-text {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--onSurface-color);
+}
+
+.body-text {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--onSurface-color);
+}
+
+.horizontal-bar {
+    width: 100%;
+    height: 2px;
+    background: var(--horizontal-bar-color);
+}
+
+footer {
+    background: var(--surface-dec-color);
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.content-footer {
+    height: 300px;
+}
+
+.politicas {
+    background: var(--surface-color);
+    margin-top: 5em;
+    border-radius: var(--border-radius);
+}
+
+.terminos {
+    background: var(--surface-color);
+    margin-top: 5em;
+    border-radius: var(--border-radius);
+}
+
+.header-text a {
+    transition: all .25s;
+}
+
+.header-text a:hover {
+    color: var(--onSurface-color-hover);
+    transform: scale(1.15);
+}
+
+.header-text a:active {
+    transition: all 0.1s;
+    color: var(--onSurface-color-active);
+    transform: scale(1);
+}
+
+.seccion-registrar {
+    width: 40%;
+    background: var(--surface-dec-color);
+    border-radius: var(--border-radius);
+    margin: 6em auto;
+    padding: 25px;
+}
+
+.seccion-registrar input {
+    color: #D9D9D9;
+    margin-top: .3em;
+    font-size: large;
+    background: #343a46;
+    border: 1px solid rgb(140, 151, 161);
+    padding: .5em;
+    width: 100%;
+    border-radius: 15px;
+
+}
+
+.seccion-registrar input::placeholder {
+    color: rgb(196, 196, 196);
+    font-size: medium;
+}
+
+.seccion-registrar input[type="button"] {
+    color: #fff;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #53c294;
+    border-radius: 25px;
+    height: 3em;
+    width: 12em;
+    margin: auto;
+    margin-top: 32px;
+}
+
+.seccion-registrar input[type="button"]:hover {
+    background: #6fdfb0;
+}
+
+.seccion-registrar input[type="button"]:active {
+    background: #52b189;
+}
+
+h1[class="header-text"] {
+    font-size: 32pt;
+    margin-bottom: 32px;
+}
+
+.upload-file-icon {
+    width: 3em;
+}
+
+div[class="d-flex"] img {
+    width: 250px;
+    flex-grow: 0;
+
+}
