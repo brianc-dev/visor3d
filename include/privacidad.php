@@ -1,36 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php view('header') ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/stylesheet.css">
-    <title>Visor 3D</title>
-</head>
+<?php view('navbar') ?>
 
-<body>
-    <!-- Navbar -->
-    <nav class="navbar fixed-top">
-        <div class="container-fluid">
-            <a href="./index.html">
-                <h1 class="title">Visor3D</h1>
-            </a>
-            <div class="d-flex header-text">
-                <a class="mx-2" href="#">Registrarse</a>
-                <a class="mx-2" href="#">Iniciar sesion</a>
-            </div>
-        </div>
-    </nav>
-
-    <section>
-        <div class="politicas d-flex flex-column body-text p-4 mx-4">
-            <h2 class="header-text">Política de privacidad de Visor3D</h2>
+<section class="container px-4 py-5">
+    <div class="row px-4 mx-5">
+        <div class="col d-flex flex-column p-4 mx-4">
+            <h3 class="header-text fw-bold">Política de privacidad de Visor3D</h3>
             <p>
                 En Visor3D, accesible en visor3d.com, una de nuestras principales prioridades es la privacidad de
                 nuestros visitantes. Este documento de Política de privacidad contiene tipos de información que Visor3D
@@ -49,7 +24,7 @@
             <p>
                 Al utilizar nuestro sitio web, usted acepta nuestra Política de privacidad y acepta sus términos.
             </p>
-            <h3 class="header-text">
+            <h3 class="header-text fw-bold">
                 Información que recopilamos
             </h3>
 
@@ -68,7 +43,7 @@
                 como el nombre, el nombre de la empresa, la dirección, la dirección de correo electrónico y el número de
                 teléfono.
             </p>
-            <h3 class="header-text">
+            <h3 class="header-text fw-bold">
                 Cómo usamos su información
             </h3>
 
@@ -101,7 +76,7 @@
                 sitio web y recopilar información demográfica.
             </p>
 
-            <h3 class="header-text">Cookies web</h3>
+            <h3 class="header-text fw-bold">Cookies web</h3>
             <p>
                 Como cualquier otro sitio web, Visor3D utiliza 'cookies'. Estas cookies se utilizan para almacenar
                 información, incluidas las preferencias de los visitantes y las páginas del sitio web a las que accedió
@@ -109,7 +84,7 @@
                 personalizar el contenido de nuestra página web según el tipo de navegador de los visitantes y/u otra
                 información.
             </p>
-            <h3 class="header-text">Cookie de DoubleClick DART</h3>
+            <h3 class="header-text fw-bold">Cookie de DoubleClick DART</h3>
             <p>
                 Google es uno de los proveedores externos de nuestro sitio. También utiliza cookies, conocidas como
                 cookies de DART, para mostrar anuncios a los visitantes de nuestro sitio en función de su visita a
@@ -124,11 +99,11 @@
                 un hipervínculo a sus Políticas de privacidad a continuación.
             </p>
 
-            <h3 class="header-text">Google</h3>
+            <h3 class="header-text fw-bold">Google</h3>
 
             <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>
             <br>
-            <h3 class="header-text">Políticas de privacidad de socios publicitarios</h3>
+            <h3 class="header-text fw-bold">Políticas de privacidad de socios publicitarios</h3>
             <p>
                 Puede consultar esta lista para encontrar la Política de privacidad de cada uno de los socios
                 publicitarios de Visor3D.
@@ -145,7 +120,7 @@
                 de terceros.
             </p>
 
-            <h3 class="header-text">Políticas de privacidad de terceros</h3>
+            <h3 class="header-text fw-bold">Políticas de privacidad de terceros</h3>
             <p>
                 La Política de privacidad de Visor3D no se aplica a otros anunciantes o sitios web. Por lo tanto, le
                 recomendamos que consulte las Políticas de privacidad respectivas de estos servidores de anuncios de
@@ -159,7 +134,7 @@
                 encontrar en los sitios web respectivos de los navegadores. ¿Qué son las cookies?
             </p>
 
-            <h3 class="header-text">Información para niños</h3>
+            <h3 class="header-text fw-bold">Información para niños</h3>
             <p>
                 Otra parte de nuestra prioridad es agregar protección para los niños mientras usan Internet. Alentamos a
                 los padres y tutores a observar, participar y/o monitorear y guiar su actividad en línea.
@@ -172,73 +147,7 @@
             </p>
 
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="container-fluid p-0 mt-4">
-            <div class="social-media-footer d-flex justify-content-center align-items-center">
-                <div id="social-media" class="container">
-                    <div class="row">
-                        <div class="col-3">
-                            <a href="#"><img src="./images/mail.svg" alt="mail"></a>
-                        </div>
-                        <div class="col-3">
-                            <a href="#"><img src="./images/instagram.svg" alt="instagram"></a>
-                        </div>
-                        <div class="col-3">
-                            <a href="#"><img src="./images/facebook.svg" alt="facebook"></a>
-                        </div>
-                        <div class="col-3">
-                            <a href="#"><img src="./images/twitter.svg" alt="twitter"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container px-4 px-md-0">
-                <div class="row content-footer align-items-center">
-                    <div class="col-12 col-md-4 my-4">
-                        <p class="header-text">Visor3D</p>
-                        <p class="body-text">Visor3D es una aplicacion web que permite visualizar modelos 3D en el
-                            formato .obj, escalar, rotar y cambiar el material del objeto.
-                            Tambien puedes crear tu propia cuenta y guardas modelos 3D para visualizar donde quieras y
-                            cuando quieras.</p>
-                    </div>
-                    <div class="col-12 col-md-4 offset-md-4">
-                        <div class="col header-text">
-                            <div class="d-flex flex-column justify-content-start">
-
-                                <a href="#">
-                                    <p>Contacto</p>
-                                </a>
-                                <a href="./terminos.html">
-                                    <p>Terminos de uso</p>
-                                </a>
-                                <a href="#">
-                                    <p>Politica de privacidad</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-4 my-md-0">
-                    <div class="col">
-                        <div class="horizontal-bar"></div>
-                    </div>
-                </div>
-                <div class="row py-4 align-items-center">
-                    <div class="col">
-                        <div class="d-flex justify-content-center">
-                            <p class="header-text">&copy; 2022 Visor3D</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </footer>
-
-
-    <script src="./js/bootstrap.min.js"></script>
-</body>
-
-</html>
+<?php view('footer') ?>
