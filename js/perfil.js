@@ -91,8 +91,10 @@ function handleImage(file) {
     }
     const img = document.querySelector('div.change-profile-photo-modal img.change-profile-photo-modal__image');
     img.file = file;
+    img.oldPicture = img.src;
 
     const reader = new FileReader();
+    document.querySelector('button#submitPhotoButton').removeAttribute('disabled')
     reader.onload = (e) => { img.src = e.target.result };
     reader.readAsDataURL(file);
 }
@@ -101,7 +103,7 @@ function uploadProfilePhoto() {
     const img = document.querySelector('div.change-profile-photo-modal img.change-profile-photo-modal__image');
     if (!img.file) {
         return;
-    };
+    }
     new FileUpload(img, img.file);
 }
 
@@ -122,14 +124,16 @@ function FileUpload(img, file) {
         if (res.ok) {
             res.json().then((value) => {
                 document.querySelector('img#profilePhoto').src = value.url;
+                document.querySelector('img.navbar__picture').src = value.url;
                 showToast('Profile picture updated successfully');
+                document.querySelector('button#close-change-profile-photo').click();
             })
         } else {
-            showToast('Something went wrong trying to update the profile picture', 'danger');
+            throw new Error('Something went wrong');
         }
     }).catch((reason) => {
         showToast('Something went wrong trying to update the profile picture', 'danger');
-    }).finally(() => {
+        img.src = img.oldPicture;
         document.querySelector('button#close-change-profile-photo').click();
     })
 
@@ -192,6 +196,17 @@ window.onload = function () {
     })
 
     profilePhotoInput.addEventListener('change', onSubmitImageListener);
+
+    document.querySelector('div#changeProfilePhotoModal').addEventListener('hide.bs.modal', (e) => {
+        document.querySelector('button#submitPhotoButton').setAttribute('disabled', true)
+        const oldPicture = document.querySelector('img#profilePhoto').src;
+        document.querySelector('div.change-profile-photo-modal img.change-profile-photo-modal__image').src = oldPicture;
+    })
+
+    // document.querySelector('button#cancelPhotoButton').addEventListener('click', (e) => {
+    //     const img = ;
+    //     img.src = document.querySelector('img#profilePhoto').src;
+    // })
 
     const submitPhotoButton = document.querySelector('button#submitPhotoButton');
     submitPhotoButton.addEventListener('click', (e) => {

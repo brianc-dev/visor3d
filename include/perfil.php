@@ -107,8 +107,8 @@ if (!isset($perfil)) die('Ha ocurrido un error al cargar el perfil');
                     accept="image/png, image/jpg, image/jpeg" />
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button id="submitPhotoButton" type="button" class="btn btn-primary">Guardar</button>
+                <button id="cancelPhotoButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="submitPhotoButton" type="button" class="btn btn-primary" disabled>Guardar</button>
             </div>
         </div>
     </div>
