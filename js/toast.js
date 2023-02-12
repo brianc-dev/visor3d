@@ -1,5 +1,10 @@
 let toastContainer;
 
+/**
+ * Convenience function used to create toasts from javascript
+ * @param {string} message the message to display
+ * @param {string} type the type of the toast
+ */
 function showToast(message, type = 'success') {
   const toastTemplate = formatToast(message, type);
   toastContainer.appendChild(toastTemplate);
@@ -13,6 +18,12 @@ function showToast(message, type = 'success') {
   toast.show();
 }
 
+/**
+ * Formats a toast and return it
+ * @param {string} message the message to display
+ * @param {string} type the type of the toast
+ * @returns {HTMLElement} the toast ready to be appended
+ */
 function formatToast(message, type) {
   const toastInner = `
   <div class="toast-header">
@@ -35,6 +46,9 @@ function formatToast(message, type) {
   return toast;
 }
 
+/**
+ * Check for toast ready to be displayed loaded from server
+ */
 function checkToast() {
   const toastDate = new Date().toLocaleString();
   // Check for toast here

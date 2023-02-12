@@ -7,7 +7,8 @@ use \Exception;
 
 class PerfilModel {
 
-    private const TARGET_DIR = __DIR__ . '/../uploads/profile/';
+    private const UPLOAD_DIR = 'uploads/profile/';
+    private const TARGET_DIR = __DIR__ .  '/../' . self::UPLOAD_DIR;
     private $pdo;
 
     public function __CONSTRUCT() {
@@ -47,7 +48,7 @@ class PerfilModel {
 
             $perfil->__SET('username', $result->username);
             $perfil->__SET('nombre', $result->nombre);
-            $perfil->__SET('photo_url', ($result->photo_url) ? 'uploads/profile/' . $result->photo_url : null);
+            $perfil->__SET('photo_url', ($result->photo_url) ? self::UPLOAD_DIR . $result->photo_url : null);
             $perfil->__SET('descripcion', $result->descripcion);
             $perfil->__SET('miembro_desde', $result->miembro_desde);
 
@@ -107,9 +108,33 @@ class PerfilModel {
     }
 
     public function guardarFotoDePerfil(string $tmp): string {
-        $file_name = $this->generatePhotoId();
+
+        // delete previous profile photo file if file exists
+        try {
+
+            $stm = $this->pdo->prepare('SELECT `photo_url` FROM `perfil` WHERE `username` = ?');
+            $stm->execute([
+                $_SESSION['username']
+            ]);
+
+            $result = $stm->fetch(PDO::FETCH_OBJ);
+
+            if ($result->photo_url) {
+                $oldPhoto = self::TARGET_DIR . $result->photo_url;
+                if (!\unlink($oldPhoto)) {
+                    http_response_code(500);
+                    die();
+                }
+            }
+            $stm->closeCursor();
+
+        } catch(Exception $e) {
+            die($e->getMessage());
+        }
+
+        $urn = $this->generatePhotoId();
         
-        $filepath = self::TARGET_DIR . $file_name;
+        $filepath = self::TARGET_DIR . $urn;
         
         if (!move_uploaded_file($tmp, $filepath)) {
             \http_response_code(500);
@@ -119,11 +144,11 @@ class PerfilModel {
         try {
             $stm = $this->pdo->prepare('UPDATE `perfil` SET `photo_url` = ? WHERE `username` = ?');
             $stm->execute([
-                $file_name,
+                $urn,
                 $_SESSION['username']
             ]) || die();
 
-            return $file_name;
+            return self::UPLOAD_DIR . $urn;
 
         } catch (Exception $e) {
             die($e->getMessage());
@@ -137,7 +162,7 @@ class PerfilModel {
         do {
             $id = generateFileId() . '.png';
             // Si existe como archivo, entonces saltar al siguiente loop
-            if (file_exists(__DIR__ . '/../uploads/profile/' . $id)) continue;
+            if (file_exists(self::TARGET_DIR . $id)) continue;
             // Chequea que la consulta se realizo
             if (!$stm->execute([$id])) {
                 die("Error al buscar en la base de datos");

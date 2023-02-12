@@ -11,7 +11,7 @@ if (!isset($perfil)) die('Ha ocurrido un error al cargar el perfil');
     <div class="row px-4 mx-5">
         <div class="col-12 col-md-2">
             <div class="position-relative">
-                <img class="profile__picture w-100 rounded-circle"
+                <img id="profilePhoto" class="profile__picture w-100 rounded-circle"
                     src="<?= $perfil->__GET('photo_url') ?? 'images/foto_perfil/610-6104451_placeholder.png'?>" alt="">
                 <?php if (is_user_logged_in() && $perfil->__GET('username') === $_SESSION['username']): ?>
                 <div class="profile__change-image w-100 rounded-circle" role="button" data-bs-toggle="modal"
@@ -88,7 +88,7 @@ if (!isset($perfil)) die('Ha ocurrido un error al cargar el perfil');
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="changeProfilePhotoLabel">Cambiar foto de perfil</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button id="close-change-profile-photo" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row row-cols-1">

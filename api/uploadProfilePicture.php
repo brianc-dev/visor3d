@@ -103,10 +103,10 @@ if (!$result) {
 }
 
 $perfilModel = new \visor3d\model\PerfilModel();
-$idPhoto = $perfilModel->guardarFotoDePerfil($tmp);
+$pictureUrl = $perfilModel->guardarFotoDePerfil($tmp);
 
 $data = [
-    'idPhoto' => $idPhoto
+    'url' => $pictureUrl
 ];
 
 $res = json_encode($data);

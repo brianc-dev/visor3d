@@ -111,27 +111,45 @@ function FileUpload(img, file) {
     fd.append('profilePhoto', file);
 
     // const reader = new FileReader();
-    this.ctrl = createThrobber(img);
-    const req = new XMLHttpRequest();
-    this.req = req;
+    // this.ctrl = createThrobber(img);
+    // const req = new XMLHttpRequest();
+    // this.req = req;
 
-    const self = this;
-    this.req.upload.addEventListener('progress', (e) => {
-        if (e.lengthComputable) {
-            const percentage = Math.round((e.loaded * 100) / e.total);
-            self.ctrl.update(percentage);
+    fetch('api/uploadProfilePicture.php', {
+        method: 'POST',
+        body: fd
+    }).then((res) => {
+        if (res.ok) {
+            res.json().then((value) => {
+                document.querySelector('img#profilePhoto').src = value.url;
+                showToast('Profile picture updated successfully');
+            })
+        } else {
+            showToast('Something went wrong trying to update the profile picture', 'danger');
         }
-    }, false);
+    }).catch((reason) => {
+        showToast('Something went wrong trying to update the profile picture', 'danger');
+    }).finally(() => {
+        document.querySelector('button#close-change-profile-photo').click();
+    })
 
-    req.upload.addEventListener('load', (e) => {
-        self.ctrl.update(100);
-        const canvas = self.ctrl.ctx.canvas;
-        canvas.parentNode.removeChild(canvas);
-    }, false);
+    // const self = this;
+    // this.req.upload.addEventListener('progress', (e) => {
+    //     if (e.lengthComputable) {
+    //         const percentage = Math.round((e.loaded * 100) / e.total);
+    //         self.ctrl.update(percentage);
+    //     }
+    // }, false);
 
-    req.open('POST', 'api/uploadProfilePicture.php', true
-    )
-    req.send(fd);
+    // req.upload.addEventListener('load', (e) => {
+    //     self.ctrl.update(100);
+    //     const canvas = self.ctrl.ctx.canvas;
+    //     canvas.parentNode.removeChild(canvas);
+    // }, false);
+
+    // req.open('POST', 'api/uploadProfilePicture.php', true
+    // )
+    // req.send(fd);
     // req.overrideMimeType('text/plain; charset=x-user-defined-binary');
     // reader.onload = (evt) => {
     //     req.send(evt.target.result);
