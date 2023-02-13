@@ -6,12 +6,12 @@ session_name("id");
 session_start();
 
 // Include classes
+$_CONFIG = parse_ini_file('.config');
 
 require __DIR__ . '/model/Usuario.php';
 require __DIR__ . '/model/Perfil.php';
 require __DIR__ . '/model/Modelo.php';
 
-require __DIR__ . '/config/database.php';
 require __DIR__ . '/libs/helpers.php';
 require __DIR__ . '/libs/flash.php';
 require __DIR__ . '/libs/sanitization.php';

@@ -18,7 +18,12 @@ class ModeloModel {
 
     public function __CONSTRUCT() {
         try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=visor3d', 'root', '');
+            global $_CONFIG;
+            $db_host = $_CONFIG['db_host'];
+            $db_name = $_CONFIG['db_name'];
+            $db_user = $_CONFIG['db_user'];
+            $db_password = $_CONFIG['db_password'];
+            $this->pdo = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             die($e->getMessage());

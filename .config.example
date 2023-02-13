@@ -1,0 +1,5 @@
+[database]
+db_host=localhost
+db_name=visor3d
+db_user=username
+db_password=password
